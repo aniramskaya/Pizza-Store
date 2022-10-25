@@ -9,19 +9,33 @@
 /* Begin PBXBuildFile section */
 		D7B321262908089D00CBB5D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321252908089D00CBB5D9 /* AppDelegate.swift */; };
 		D7B321282908089D00CBB5D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321272908089D00CBB5D9 /* SceneDelegate.swift */; };
-		D7B3212A2908089D00CBB5D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321292908089D00CBB5D9 /* ViewController.swift */; };
 		D7B3212F290808A100CBB5D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7B3212E290808A100CBB5D9 /* Assets.xcassets */; };
 		D7B32132290808A100CBB5D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7B32130290808A100CBB5D9 /* LaunchScreen.storyboard */; };
+		D7B3213B29081EE600CBB5D9 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3213A29081EE600CBB5D9 /* NavBarController.swift */; };
+		D7B3213D29081F0200CBB5D9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3213C29081F0200CBB5D9 /* TabBarController.swift */; };
+		D7B3214029081F5A00CBB5D9 /* Resouces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3213F29081F5A00CBB5D9 /* Resouces.swift */; };
+		D7B3214329081F8300CBB5D9 /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3214229081F8300CBB5D9 /* UIColor + ext.swift */; };
+		D7B3214629081FCA00CBB5D9 /* StoreBasketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3214529081FCA00CBB5D9 /* StoreBasketVC.swift */; };
+		D7B3214829081FEA00CBB5D9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3214729081FEA00CBB5D9 /* ProfileVC.swift */; };
+		D7B3214A2908200E00CBB5D9 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321492908200E00CBB5D9 /* ContactsVC.swift */; };
+		D7B3214C2908202C00CBB5D9 /* MainTableListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3214B2908202C00CBB5D9 /* MainTableListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D7B321222908089D00CBB5D9 /* Pizza-Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pizza-Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B321252908089D00CBB5D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B321272908089D00CBB5D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7B321292908089D00CBB5D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7B3212E290808A100CBB5D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7B32131290808A100CBB5D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7B32133290808A100CBB5D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7B3213A29081EE600CBB5D9 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		D7B3213C29081F0200CBB5D9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D7B3213F29081F5A00CBB5D9 /* Resouces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resouces.swift; sourceTree = "<group>"; };
+		D7B3214229081F8300CBB5D9 /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
+		D7B3214529081FCA00CBB5D9 /* StoreBasketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreBasketVC.swift; sourceTree = "<group>"; };
+		D7B3214729081FEA00CBB5D9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		D7B321492908200E00CBB5D9 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
+		D7B3214B2908202C00CBB5D9 /* MainTableListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,53 @@
 		D7B321242908089D00CBB5D9 /* Pizza-Store */ = {
 			isa = PBXGroup;
 			children = (
+				D7B3213E29081F4500CBB5D9 /* Help */,
+				D7B3214429081FAC00CBB5D9 /* Controllers */,
 				D7B321252908089D00CBB5D9 /* AppDelegate.swift */,
 				D7B321272908089D00CBB5D9 /* SceneDelegate.swift */,
-				D7B321292908089D00CBB5D9 /* ViewController.swift */,
+				D7B3213929081EC700CBB5D9 /* Navigation */,
 				D7B3212E290808A100CBB5D9 /* Assets.xcassets */,
 				D7B32130290808A100CBB5D9 /* LaunchScreen.storyboard */,
 				D7B32133290808A100CBB5D9 /* Info.plist */,
 			);
 			path = "Pizza-Store";
+			sourceTree = "<group>";
+		};
+		D7B3213929081EC700CBB5D9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D7B3213A29081EE600CBB5D9 /* NavBarController.swift */,
+				D7B3213C29081F0200CBB5D9 /* TabBarController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		D7B3213E29081F4500CBB5D9 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				D7B3214129081F7500CBB5D9 /* Extensions */,
+				D7B3213F29081F5A00CBB5D9 /* Resouces.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		D7B3214129081F7500CBB5D9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D7B3214229081F8300CBB5D9 /* UIColor + ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D7B3214429081FAC00CBB5D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7B3214B2908202C00CBB5D9 /* MainTableListVC.swift */,
+				D7B321492908200E00CBB5D9 /* ContactsVC.swift */,
+				D7B3214729081FEA00CBB5D9 /* ProfileVC.swift */,
+				D7B3214529081FCA00CBB5D9 /* StoreBasketVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7B3212A2908089D00CBB5D9 /* ViewController.swift in Sources */,
+				D7B3214629081FCA00CBB5D9 /* StoreBasketVC.swift in Sources */,
 				D7B321262908089D00CBB5D9 /* AppDelegate.swift in Sources */,
+				D7B3214C2908202C00CBB5D9 /* MainTableListVC.swift in Sources */,
+				D7B3214829081FEA00CBB5D9 /* ProfileVC.swift in Sources */,
 				D7B321282908089D00CBB5D9 /* SceneDelegate.swift in Sources */,
+				D7B3213D29081F0200CBB5D9 /* TabBarController.swift in Sources */,
+				D7B3214029081F5A00CBB5D9 /* Resouces.swift in Sources */,
+				D7B3213B29081EE600CBB5D9 /* NavBarController.swift in Sources */,
+				D7B3214329081F8300CBB5D9 /* UIColor + ext.swift in Sources */,
+				D7B3214A2908200E00CBB5D9 /* ContactsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

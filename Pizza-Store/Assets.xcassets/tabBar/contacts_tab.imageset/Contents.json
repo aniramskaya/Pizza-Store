@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "contacts_tab.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
