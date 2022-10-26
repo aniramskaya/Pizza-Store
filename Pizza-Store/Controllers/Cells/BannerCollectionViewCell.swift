@@ -7,17 +7,18 @@
 
 import UIKit
 
-class BannerCollectionViewCell: UICollectionViewCell {
+final class BannerCollectionViewCell: UICollectionViewCell {
+    static let identifier = "BannerCollectionViewCell"
 
     private var bannerImageView = UIImageView()
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        addSubview(bannerImageView)
+        contentView.addSubview(bannerImageView)
         configureImageView()
         setImageConstraints()
-        //        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+                contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
     func set(banner: BannerModel) {
@@ -33,7 +34,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
 
     func setImageConstraints(){
 
-        bannerImageView.translatesAutoresizingMaskIntoConstraints                               = false
+        bannerImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             bannerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             bannerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

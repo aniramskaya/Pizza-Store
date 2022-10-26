@@ -8,7 +8,7 @@
 import UIKit
 
 struct AssortsModel {
-    
+
     let assortmentImage: UIImage?
     let assortmentLable: String
     let assortmentSmallDescription: String

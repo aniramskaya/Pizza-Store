@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ListTableViewCell: UITableViewCell {
+final class ListTableViewCell: UITableViewCell {
+    static let identifier = "ListTableViewCell"
 
     //MARK: - variables parametrs
 
@@ -56,9 +57,9 @@ class ListTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(assortmentImage)
-        addSubview(assortmentLable)
-        addSubview(assortmentSmallDescription)
-        addSubview(assortmentCost)
+        contentView.addSubview(assortmentLable)
+        contentView.addSubview(assortmentSmallDescription)
+        contentView.addSubview(assortmentCost)
         setConstraints()
         backgroundColor = #colorLiteral(red: 0.9999999404, green: 0.9999999404, blue: 1, alpha: 1)
     }
@@ -76,18 +77,18 @@ class ListTableViewCell: UITableViewCell {
 
     func setConstraints(){
         NSLayoutConstraint.activate([
-            assortmentImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            assortmentImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            assortmentImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            assortmentImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             assortmentImage.heightAnchor.constraint(equalToConstant: 132),
             assortmentImage.widthAnchor.constraint(equalToConstant: 132),
 
             assortmentLable.leadingAnchor.constraint(equalTo: assortmentImage.trailingAnchor,constant: 32),
-            assortmentLable.topAnchor.constraint(equalTo: topAnchor, constant:  24),
-            assortmentLable.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            assortmentLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant:  24),
+            assortmentLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             assortmentSmallDescription.topAnchor.constraint(equalTo: assortmentLable.bottomAnchor,constant: 8),
             assortmentSmallDescription.leadingAnchor.constraint(equalTo: assortmentLable.leadingAnchor),
-            assortmentSmallDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16 ),
+            assortmentSmallDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16 ),
 
             assortmentCost.topAnchor.constraint(equalTo: assortmentSmallDescription.bottomAnchor, constant:  16),
             assortmentCost.trailingAnchor.constraint(equalTo: assortmentSmallDescription.trailingAnchor),

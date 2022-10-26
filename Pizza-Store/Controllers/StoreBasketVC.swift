@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StoreBasketVC: UIViewController {
+final class StoreBasketVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

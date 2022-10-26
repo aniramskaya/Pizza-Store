@@ -7,9 +7,11 @@
 
 import UIKit
 
-class MainTableListVC: UIViewController {
+final class MainTableListVC: UIViewController {
 
     //MARK: - variables parametrs
+
+    private let tabsMenu2 = BannersView()
 
     private let tabsMenu: UIView = {
         let view = UIView()
@@ -20,8 +22,8 @@ class MainTableListVC: UIViewController {
 
     private lazy var banners: [BannerModel] = []
 
-    private lazy var tableView = UITableView()
-    //    private var tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
+    private lazy var tableView = UITableView(frame: .zero)
+//    private var tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
     private lazy var assorts: [AssortsModel] = []
 
     //MARK: - viewDidLoad
@@ -55,7 +57,7 @@ class MainTableListVC: UIViewController {
 
     func setConstraints(){
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -110,37 +112,25 @@ extension MainTableListVC: UITableViewDelegate {
 
 extension MainTableListVC: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch indexPath.section {
-        case 0:
-            return 112
-        case 1:
-            return 180
-        default:
-            return 0
-        }
-    }
-
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
+
         switch section {
         case 0:
-            return 0
+            return 112
         default:
             return 80
         }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
+
         switch section {
         case 0:
-            return nil
+            return tabsMenu2
         case 1:
             return tabsMenu
         default:
@@ -148,11 +138,19 @@ extension MainTableListVC: UITableViewDataSource {
         }
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.section {
+        case 1:
+            return 180
+        default:
+            return 0
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch section {
-        case 0:
-            return 1
         case 1:
             return assorts.count
         default:
@@ -162,13 +160,12 @@ extension MainTableListVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BannerTableViewCell") as! BannerTableViewCell
+        if indexPath.section == 1 {
+            guard  let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.identifier) as? ListTableViewCell
+            else {
+                fatalError("Could not dequeue cell with identifier: \(ListTableViewCell.identifier)")
+            }
 
-            return cell
-
-        } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell") as! ListTableViewCell
             let assort = assorts[indexPath.row]
             cell.set(assort: assort)
             return cell

@@ -7,7 +7,8 @@
 
 import UIKit
 
-class BannerTableViewCell: UITableViewCell {
+final class BannerTableViewCell: UITableViewCell {
+    static let identifier = "BannerTableViewCell"
 
     //MARK: - variables parametrs
 
@@ -31,7 +32,7 @@ class BannerTableViewCell: UITableViewCell {
         banners = fetchDataBanners()
 
         //        bannerView.backgroundColor = .orange
-        backgroundColor = #colorLiteral(red: 0.9999999404, green: 0.9999999404, blue: 1, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.9999999404, green: 0.9999999404, blue: 1, alpha: 1)
     }
 
     required init?(coder: NSCoder) {
