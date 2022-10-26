@@ -8,7 +8,9 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-    
+
+    //MARK: - variables parametrs
+
     private let assortmentImage: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 66
@@ -17,7 +19,7 @@ class ListTableViewCell: UITableViewCell {
         imageView.clipsToBounds = true
         return imageView
     }()
-    
+
     private let assortmentLable: UILabel = {
         let lable = UILabel()
         lable.textColor = #colorLiteral(red: 0.1325057149, green: 0.1562151015, blue: 0.1936660707, alpha: 1)
@@ -27,7 +29,7 @@ class ListTableViewCell: UITableViewCell {
         lable.translatesAutoresizingMaskIntoConstraints = false
         return  lable
     }()
-    
+
     private let assortmentSmallDescription: UILabel = {
         let lable = UILabel()
         lable.numberOfLines = 0
@@ -60,18 +62,18 @@ class ListTableViewCell: UITableViewCell {
         setConstraints()
         backgroundColor = #colorLiteral(red: 0.9999999404, green: 0.9999999404, blue: 1, alpha: 1)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func set(assort: AssortsModel) {
         assortmentImage.image = assort.assortmentImage
         assortmentLable.text = assort.assortmentLable
         assortmentSmallDescription.text = assort.assortmentSmallDescription
         assortmentCost.text = assort.assortmentCost
     }
-    
+
     func setConstraints(){
         NSLayoutConstraint.activate([
             assortmentImage.centerYAnchor.constraint(equalTo: centerYAnchor),
