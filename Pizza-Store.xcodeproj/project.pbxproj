@@ -24,7 +24,6 @@
 		D7B321542908D56A00CBB5D9 /* AssortsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321532908D56A00CBB5D9 /* AssortsModel.swift */; };
 		D7B321562908D5CA00CBB5D9 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321552908D5CA00CBB5D9 /* BannerTableViewCell.swift */; };
 		D7B321582908D61400CBB5D9 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B321572908D61400CBB5D9 /* BannerCollectionViewCell.swift */; };
-		D7B3215B2908E95800CBB5D9 /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3215A2908E95800CBB5D9 /* SomeView.swift */; };
 		D7B3215D2908ECDE00CBB5D9 /* BannersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B3215C2908ECDE00CBB5D9 /* BannersView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		D7B321532908D56A00CBB5D9 /* AssortsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssortsModel.swift; sourceTree = "<group>"; };
 		D7B321552908D5CA00CBB5D9 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 		D7B321572908D61400CBB5D9 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
-		D7B3215A2908E95800CBB5D9 /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
 		D7B3215C2908ECDE00CBB5D9 /* BannersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +154,6 @@
 		D7B321592908E94200CBB5D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D7B3215A2908E95800CBB5D9 /* SomeView.swift */,
 				D7B3215C2908ECDE00CBB5D9 /* BannersView.swift */,
 			);
 			path = View;
@@ -241,7 +238,6 @@
 				D7B3214C2908202C00CBB5D9 /* MainTableListVC.swift in Sources */,
 				D7B3214829081FEA00CBB5D9 /* ProfileVC.swift in Sources */,
 				D7B3215D2908ECDE00CBB5D9 /* BannersView.swift in Sources */,
-				D7B3215B2908E95800CBB5D9 /* SomeView.swift in Sources */,
 				D7B321282908089D00CBB5D9 /* SceneDelegate.swift in Sources */,
 				D7B3213D29081F0200CBB5D9 /* TabBarController.swift in Sources */,
 				D7B321542908D56A00CBB5D9 /* AssortsModel.swift in Sources */,

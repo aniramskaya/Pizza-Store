@@ -11,13 +11,20 @@ final class MainTableListVC: UIViewController {
 
     //MARK: - variables parametrs
 
-    private let tabsMenu2 = BannersView()
+    private let tabsMenu2:  BannersView = {
+        let view = BannersView()
+        view.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     private let tabsMenu: UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
-        return  view
+        return view
     }()
 
     private lazy var banners: [BannerModel] = []

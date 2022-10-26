@@ -11,22 +11,28 @@ final class BannersView: UIView {
     private let scrollView = UIScrollView()
 
     private let leftItemView: UIImageView = {
-        let imageView = UIImageView ()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "Rectangle1")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = false
         imageView.backgroundColor = .red
         return imageView
     }()
 
     private let centerItemView: UIImageView = {
-        let imageView = UIImageView ()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "Rectangle3")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = false
         imageView.backgroundColor = .green
         return imageView
     }()
 
     private let rightItemView: UIImageView = {
-        let imageView = UIImageView ()
+        let imageView = UIImageView()
         imageView.image = UIImage(named: "Rectangle2")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = false
         imageView.backgroundColor = .yellow
         return imageView
     }()
@@ -61,9 +67,9 @@ final class BannersView: UIView {
         self.scrollView.frame = self.bounds
 
         let horizontalItemOffsetFromSuperView: CGFloat = 16.0
-        let spaceBetweenItems: CGFloat = 8.0
-        let itemWidth = self.frame.width - horizontalItemOffsetFromSuperView * 2
-        let itemHeight: CGFloat = self.scrollView.frame.height
+        let spaceBetweenItems: CGFloat = 16.0
+        let itemWidth = 300.0
+        let itemHeight = 112.0
 
         var startX: CGFloat = 0.0
 
@@ -96,5 +102,4 @@ extension BannersView: UIScrollViewDelegate {
       targetContentOffset.pointee.x = self.centerItemView.frame.midX - self.frame.midX
     }
   }
-
 }
