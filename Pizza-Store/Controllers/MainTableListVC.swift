@@ -134,7 +134,7 @@ extension MainTableListVC {
         let tab4 = TabModel(lable: "Напитки")
         let tab5 = TabModel(lable: "Акця")
 
-        return [tab1, tab2, tab3, tab4, tab4]
+        return [tab1, tab2, tab3, tab4, tab5]
     }
 
     func fetchDataAssorts () -> [AssortsModel]{
@@ -199,35 +199,6 @@ extension MainTableListVC: UICollectionViewDataSource {
 // MARK: - Collection View DelegateFlowLayout
 
 extension MainTableListVC: UICollectionViewDelegateFlowLayout {
-
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-//        if indexPath.item == pageCollection.selectedPageIndex {
-//
-//            return
-////        }
-//
-//        var direction: UIPageViewController.NavigationDirection
-//
-//        if indexPath.item > pageCollection.selectedPageIndex {
-//
-//            direction = .forward
-//
-//        } else {
-//
-//            direction = .reverse
-//        }
-//
-//        pageCollection.selectedPageIndex = indexPath.item
-//
-//        tabBarCollectionView.scrollToItem(at: indexPath,
-//                                          at: .centeredHorizontally,
-//                                          animated: true)
-//
-//        scrollSelectedTabView(toIndexPath: indexPath)
-//
-//        setBottomPagingView(toPageWithAtIndex: indexPath.item, andNavigationDirection: direction)
-//    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
