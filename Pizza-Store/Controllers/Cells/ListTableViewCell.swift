@@ -49,7 +49,6 @@ final class ListTableViewCell: UITableViewCell {
         lable.layer.cornerRadius = 6
         lable.textAlignment = .center
         lable.font = UIFont.systemFont(ofSize: 14)
-        lable.textColor = .black
         lable.translatesAutoresizingMaskIntoConstraints = false
         return  lable
     }()

@@ -11,7 +11,7 @@ final class MainTableListVC: UIViewController {
 
     //MARK: - variables parametrs
 
-    private let tabsMenu2:  BannersView = {
+    private lazy var  bannersView:  BannersView = {
         let view = BannersView()
         view.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
         view.contentMode = .scaleAspectFill
@@ -20,18 +20,27 @@ final class MainTableListVC: UIViewController {
         return view
     }()
 
-    private let tabsMenu: UIView = {
+    private lazy var  tabsMenu:  UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
     private lazy var banners: [BannerModel] = []
-
-    private lazy var tableView = UITableView(frame: .zero)
-//    private var tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
+    private lazy var tabs: [TabModel] = []
     private lazy var assorts: [AssortsModel] = []
+
+    
+    private lazy var tabsCount = 4
+    private var tabsCollection: UICollectionView?
+
+    private lazy var mainListTableView = UITableView(frame: .zero)
+//    private lazy var mainListTableView = UITableView(frame: .zero)
+//    private var mainListTableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
+
 
     //MARK: - viewDidLoad
 
@@ -42,33 +51,68 @@ final class MainTableListVC: UIViewController {
         setConstraints()
 
         banners = fetchDataBanners()
+        tabs = fetchDataTabs ()
         assorts = fetchDataAssorts()
     }
 
     func configureView() {
-        view.addSubview(tableView)
+
+
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = CGSize(width: 88, height: 32)
+
+        tabsCollection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+
+
+//        tabsCollection.translatesAutoresizingMaskIntoConstraints = false
+
+        tabsCollection!.register(TabBarCollectionViewCell.self, forCellWithReuseIdentifier: "TabBarCollectionViewCell")
+
+        mainListTableView.showsVerticalScrollIndicator = false
+        mainListTableView.translatesAutoresizingMaskIntoConstraints = false
+        mainListTableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
+        mainListTableView.register(BannerTableViewCell.self, forCellReuseIdentifier: "BannerTableViewCell")
+
+
+        tabsCollection?.frame = view.bounds
+        tabsCollection?.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
+        tabsCollection?.showsHorizontalScrollIndicator = false
+        view.addSubview(tabsCollection!)
+        view.addSubview(mainListTableView)
 
         setViewDelegates()
 
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
-        tableView.register(BannerTableViewCell.self, forCellReuseIdentifier: "BannerTableViewCell")
-        
     }
 
     func setViewDelegates(){
-        
-        tableView.delegate    = self
-        tableView.dataSource  = self
+
+        tabsCollection!.dataSource = self
+        tabsCollection!.delegate = self
+
+        mainListTableView.delegate    = self
+        mainListTableView.dataSource  = self
     }
 
     func setConstraints(){
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mainListTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainListTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+
+    func scrollSelectedTabView(toIndexPath indexPath: IndexPath, shouldAnimate: Bool = true) {
+
+        UIView.animate(withDuration: 0.3) {
+
+//            if let cell = self.tabsCollection.cellForItem(at: indexPath) {
+//
+////                self.selectedTabView.frame.size.width = cell.frame.width
+////                self.selectedTabView.frame.origin.x = cell.frame.origin.x
+//            }
+        }
     }
 }
 
@@ -79,35 +123,118 @@ extension MainTableListVC {
         let banner1 = BannerModel(image: UIImage(named: "Rectangle1")!)
         let banner2 = BannerModel(image: UIImage(named: "Rectangle2")!)
         let banner3 = BannerModel(image: UIImage(named: "Rectangle3")!)
-        
+
         return [banner1, banner2, banner3]
+    }
+
+    func fetchDataTabs () -> [TabModel]{
+        let tab1 = TabModel(lable: "Пицца")
+        let tab2 = TabModel(lable: "Комбо")
+        let tab3 = TabModel(lable: "Десерты")
+        let tab4 = TabModel(lable: "Напитки")
+        let tab5 = TabModel(lable: "Акця")
+
+        return [tab1, tab2, tab3, tab4, tab4]
     }
 
     func fetchDataAssorts () -> [AssortsModel]{
         let Item1 = AssortsModel(assortmentImage: UIImage(named: "P1"),
                                  assortmentLable: "Ветчина и грибы",
                                  assortmentSmallDescription: "Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус",
-                                 assortmentCost: "345")
+                                 assortmentCost: "от 345 р")
         let Item2 = AssortsModel(assortmentImage: UIImage(named: "P2"),
                                  assortmentLable: "Баварские колбаски",
                                  assortmentSmallDescription: "Баварски колбаски,ветчина, пикантная пепперони, острая чоризо, моцарелла, томатный соус",
-                                 assortmentCost: "345")
+                                 assortmentCost: "от 345 р")
         let Item3 = AssortsModel(assortmentImage: UIImage(named: "P3"),
                                  assortmentLable: "Нежный лосось",
                                  assortmentSmallDescription: "Лосось, томаты черри, моцарелла, соус песто",
-                                 assortmentCost: "345")
+                                 assortmentCost: "от 345 р")
         let Item4 = AssortsModel(assortmentImage: UIImage(named: "P4"),
                                  assortmentLable: "Пицца четыре сыра",
                                  assortmentSmallDescription: "Соус Карбонара, Сыр Моцарелла, Сыр Пармезан, Сыр Роккфорти, Сыр Чеддер (тёртый)",
-                                 assortmentCost: "345")
+                                 assortmentCost: "от 345 р")
         let Item5 = AssortsModel(assortmentImage: UIImage(named: "P1"),
                                  assortmentLable: "Ветчина",
                                  assortmentSmallDescription: "Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус",
-                                 assortmentCost: "345")
+                                 assortmentCost: "от 345 р")
 
         return [Item1,Item2,Item3,Item4,Item5]
     }
 }
+// MARK: - Collection View Delegate
+
+extension MainTableListVC: UICollectionViewDelegate {
+
+}
+
+// MARK: - Collection View Data Source
+
+extension MainTableListVC: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+
+        return tabs.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+//        let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabBarCollectionViewCell", for: indexPath) as! TabBarCollectionViewCell
+//
+//        return tabCell
+
+        guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCell.identifier, for: indexPath) as? TabBarCollectionViewCell
+        else {
+            fatalError("Could not dequeue cell with identifier: \(TabBarCollectionViewCell.identifier)")
+        }
+
+        let tab = tabs[indexPath.row]
+        cell.set(tab: tab)
+        return cell
+
+    }
+}
+
+
+// MARK: - Collection View DelegateFlowLayout
+
+extension MainTableListVC: UICollectionViewDelegateFlowLayout {
+
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+//        if indexPath.item == pageCollection.selectedPageIndex {
+//
+//            return
+////        }
+//
+//        var direction: UIPageViewController.NavigationDirection
+//
+//        if indexPath.item > pageCollection.selectedPageIndex {
+//
+//            direction = .forward
+//
+//        } else {
+//
+//            direction = .reverse
+//        }
+//
+//        pageCollection.selectedPageIndex = indexPath.item
+//
+//        tabBarCollectionView.scrollToItem(at: indexPath,
+//                                          at: .centeredHorizontally,
+//                                          animated: true)
+//
+//        scrollSelectedTabView(toIndexPath: indexPath)
+//
+//        setBottomPagingView(toPageWithAtIndex: indexPath.item, andNavigationDirection: direction)
+//    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
+}
+
 
 //MARK: - UITableViewDelegate
 
@@ -129,7 +256,7 @@ extension MainTableListVC: UITableViewDataSource {
         case 0:
             return 112
         default:
-            return 80
+            return 50
         }
     }
 
@@ -137,9 +264,9 @@ extension MainTableListVC: UITableViewDataSource {
 
         switch section {
         case 0:
-            return tabsMenu2
+            return bannersView
         case 1:
-            return tabsMenu
+            return tabsCollection
         default:
             return UIView()
         }

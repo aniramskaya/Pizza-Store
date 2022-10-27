@@ -1,5 +1,5 @@
 //
-//  BannersView.swift
+//  TabsView.swift
 //  Pizza-Store
 //
 //  Created by Алексей on 26.10.2022.
@@ -7,8 +7,13 @@
 
 import UIKit
 
-final class BannersView: UIView {
-    private let scrollView = UIScrollView()
+final class TabsView: UIView {
+    private lazy var scrollView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 100, height: 50)
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collection
+    }()
 
     private let leftItemView: UIImageView = {
         let imageView = UIImageView()
@@ -66,7 +71,7 @@ final class BannersView: UIView {
         super.layoutSubviews()
         self.scrollView.frame = self.bounds
 
-        let horizontalItemOffsetFromSuperView: CGFloat = 16.0
+//        let horizontalItemOffsetFromSuperView: CGFloat = 16.0
         let spaceBetweenItems: CGFloat = 16.0
         let itemWidth = 300.0
         let itemHeight = 112.0
@@ -85,8 +90,11 @@ final class BannersView: UIView {
         self.scrollView.contentSize = CGSize(width: contentWidth, height: self.frame.height)
     }
 }
+extension TabsView: UICollectionViewDelegate {
 
-extension BannersView: UIScrollViewDelegate {
+}
+
+extension TabsView: UIScrollViewDelegate {
 
   func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     let gap: CGFloat = self.centerItemView.frame.width / 2
@@ -103,4 +111,3 @@ extension BannersView: UIScrollViewDelegate {
     }
   }
 }
-

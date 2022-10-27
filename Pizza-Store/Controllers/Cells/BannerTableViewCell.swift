@@ -55,10 +55,10 @@ final class BannerTableViewCell: UITableViewCell {
 
     //    func setConstraints(){
     //        NSLayoutConstraint.activate([
-    //            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-    //            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-    //            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-    //            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    //            mainListTableView.topAnchor.constraint(equalTo: view.topAnchor),
+    //            mainListTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+    //            mainListTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+    //            mainListTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     //        ])
     //
     //        NSLayoutConstraint.activate([

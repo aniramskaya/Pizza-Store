@@ -30,8 +30,8 @@ final class TabBarController: UITabBarController {
 
     private func configureAppearance() {
         tabBar.tintColor = Resouces.Colors.active
-        tabBar.barTintColor = Resouces.Colors.inactive
-        tabBar.backgroundColor = .white
+        tabBar.barTintColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
+        tabBar.backgroundColor = #colorLiteral(red: 0.9999999404, green: 0.9999999404, blue: 1, alpha: 1)
         tabBar.layer.borderColor = Resouces.Colors.separator.cgColor
         tabBar.layer.borderWidth = 1
         tabBar.layer.masksToBounds = true
