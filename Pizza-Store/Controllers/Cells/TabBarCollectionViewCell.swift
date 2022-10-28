@@ -13,6 +13,19 @@ final class TabBarCollectionViewCell: UICollectionViewCell {
     let tabWidth = 88
     let tabHeight = 32
 
+    private lazy var tabButton: UIButton = {
+        let button = UIButton()
+        button.layer.borderColor = #colorLiteral(red: 0.9601178765, green: 0.8141337037, blue: 0.8628881574, alpha: 1)
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 16
+        button.backgroundColor = #colorLiteral(red: 0.9526819587, green: 0.9605210423, blue: 0.9771986604, alpha: 1)
+        button.addTarget(self, action: #selector(touchDown) , for: .touchDown)
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
     private var tab: UILabel = {
         let lable = UILabel()
         lable.textColor = #colorLiteral(red: 0.991042912, green: 0.2283459306, blue: 0.4105762243, alpha: 1)
@@ -27,6 +40,7 @@ final class TabBarCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.addSubview(tabButton)
         contentView.addSubview(tab)
     }
 
@@ -41,6 +55,11 @@ final class TabBarCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        tabButton.frame = CGRect(x: 0, y: 0, width: tabWidth, height: tabHeight)
         tab.frame = CGRect(x: 0, y: 0, width: tabWidth, height: tabHeight)
+    }
+
+    @objc func touchDown() {
+        tabButton.backgroundColor = #colorLiteral(red: 0.9601178765, green: 0.8141337037, blue: 0.8628881574, alpha: 1)
     }
 }
